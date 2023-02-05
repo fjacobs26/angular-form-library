@@ -1,0 +1,6 @@
+<mat-radio-group disableRipple [attr.aria-label]="config.hint" class="checkbox row">
+    <mat-checkbox *ngFor="let item of config.subValues" [value]="item" (change)="onClick(item)">
+        <span class="title row ms-1">{{ item.label }}</span>
+        <span class="subtitle row ms-1">{{ item.helpText }}</span>
+    </mat-checkbox>
+</mat-radio-group>

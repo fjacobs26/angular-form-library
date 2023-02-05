@@ -1,0 +1,12 @@
+<div class="select-box" [ngSwitch]="config.subType">
+    <ng-container *ngSwitchCase="'base'">
+        <mat-form-field appearance="fill">
+            <mat-select disableRipple (selectionChange)="onChangeEvent($event.value)">
+                <mat-option *ngFor="let item of config.subValues" [value]="item">{{item}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        <mat-error class="field-error">Field not found for Select type</mat-error>
+    </ng-container>
+</div>

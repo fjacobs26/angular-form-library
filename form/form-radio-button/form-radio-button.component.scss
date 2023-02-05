@@ -1,0 +1,90 @@
+@use "sass:map";
+@import "../../../styles/css/_base.scss";
+
+.radio {
+  margin-bottom: 24px;
+  mat-radio-group {
+
+    mat-radio-button {
+        margin-right: 24px;
+        margin-bottom: 13px
+    }
+
+    ::ng-deep span.mat-radio-inner-circle {
+      width: 40px;
+      height: 40px;
+      left: -4px;
+      top: -4px;
+    }
+    ::ng-deep span.mat-radio-outer-circle {
+      background-color: #ecf1f8 !important;
+      border: 2px #9faebd solid !important;
+      width: 32px;
+      height: 32px;
+    }
+    ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle,
+    ::ng-deep
+      .mat-radio-button.mat-accent
+      .mat-radio-ripple
+      .mat-ripple-element:not(.mat-radio-persistent-ripple),
+    ::ng-deep
+      .mat-radio-button.mat-accent.mat-radio-checked
+      .mat-radio-persistent-ripple,
+    ::ng-deep .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+      background-color: map.get($colors, "primary");
+    }
+
+    ::ng-deep .mat-radio-button .mat-radio-ripple {
+      left: calc(50% - 15px);
+      top: calc(50% - 15px);
+    }
+
+    ::ng-deep .mat-ripple.mat-radio-ripple {
+      display: none;
+    }
+
+    ::ng-deep span.mat-radio-label-content {
+      padding-left: 24px;
+      padding-top: 10px;
+      font-family: $font-0;
+      font-size: $font-small;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.14;
+      letter-spacing: normal;
+      color: map.get($colors, "primary-alt");
+    }
+  }
+
+  mat-button-toggle-group {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    border: none !important;
+    margin-bottom: 24px;
+    mat-button-toggle {
+      margin-right: 16px;
+      border-radius: 10px;
+      border: 1px map.get($colors, "grey-light") solid !important;
+      box-shadow: 0 0 15px 0 rgba(20, 40, 80, 0.1);
+      width: 85px;
+      height: 56px;
+      span {
+        font-family: $font-0;
+        font-size: $font-large;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+        text-align: center;
+        color: map.get($colors, "blue-alt");
+      }
+    }
+    .mat-button-toggle-checked {
+      background: none !important;
+      border: 1px map.get($colors, "primary") solid !important;
+    }
+  }
+}

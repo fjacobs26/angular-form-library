@@ -1,0 +1,25 @@
+<div class="radio" [ngSwitch]="config.subType">
+    <ng-container *ngSwitchCase="'base'">
+        <mat-radio-group aria-label="Select an option">
+            <mat-radio-button *ngFor="let item of config.subValues" [value]="item.code" (change)="onClick(item)">
+                {{ item.label }}
+            </mat-radio-button>
+        </mat-radio-group>
+    </ng-container>
+    <ng-container *ngSwitchCase="'toogle'">
+        <mat-button-toggle-group name="fontStyle">
+            <mat-button-toggle disableRipple *ngFor="let item of config.subValues" [value]="item.code"
+                (click)="onClick(item)">
+                {{ item.label }}
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </ng-container>
+    <ng-container *ngSwitchCase="'selector'">
+        <lib-radio-button title="cantidad" [tooltip]="true" [options]="config.subValues">
+        </lib-radio-button>
+        <!--[NOK] hay que darle una vuelta a este campo -->
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        <mat-error class="field-error">Field not found for Input Radio type</mat-error>
+    </ng-container>
+</div>

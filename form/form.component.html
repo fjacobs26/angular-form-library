@@ -1,0 +1,43 @@
+<ng-container *ngIf="(isReady | async) as item; else spinner">
+    <form
+        [formGroup]="customGroup"
+        [ngClass]="{'important-form': formClass === 'one'}"
+        (submit)="submitForm($event)" >
+        <div *ngFor="let item of (formItem | async)">
+            <ng-container *ngIf="item.header">
+                <div class="item-header">
+                    <span>{{item.header}}</span>
+                </div>
+            </ng-container>
+            <ng-container [ngSwitch]="item.input.type">
+                <ng-container *ngSwitchCase="'text'">
+                    <lib-form-input [disable]="!isEditable" [config]="item.input" formControlName="{{item.input.formName}}"></lib-form-input>
+                </ng-container>
+                <ng-container *ngSwitchCase="'radio'">
+                    <lib-form-radio-button [disable]="!isEditable" [config]="item.input" (changeValidatorDeps)="changeChildValidator($event)" formControlName="{{item.input.formName}}"></lib-form-radio-button>
+                </ng-container>
+                <ng-container *ngSwitchCase="'checkbox'">
+                    <lib-form-checkbox [disable]="!isEditable" [config]="item.input" (changeValidatorDeps)="changeChildValidator($event)" formControlName="{{item.input.formName}}"></lib-form-checkbox>
+                </ng-container>
+                <ng-container *ngSwitchCase="'select'">
+                    <lib-form-select-box [disable]="!isEditable" [config]="item.input" (changeValidatorDeps)="changeChildValidator($event)" formControlName="{{item.input.formName}}"></lib-form-select-box>
+                </ng-container>
+                <ng-container *ngSwitchCase="'datepicker'">
+                    <lib-form-datepicker [disable]="!isEditable" [config]="item.input" formControlName="{{item.input.formName}}"></lib-form-datepicker>
+                </ng-container>
+                <ng-container *ngSwitchDefault>
+                    Field type not found
+                </ng-container>
+            </ng-container>
+            
+            <ng-container *ngIf="item.footer">
+                <span class="item-footer" [ngClass]="{'ng-valid': item.footer.valid}">{{item.footer.text}}</span>
+            </ng-container>
+        </div>
+        <button class="btn col-12 col-lg-2 offset-lg-0 me-lg-4 btn btn-sm btn-primary" [disabled]="!customGroup.valid" type="submit">{{buttonName}}</button>
+    </form>
+
+</ng-container>
+<ng-template #spinner>
+    <mat-spinner></mat-spinner>
+</ng-template>

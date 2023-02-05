@@ -1,0 +1,42 @@
+<div class="input" [ngSwitch]="config.subType">
+  <ng-container *ngSwitchCase="'text'">
+    <mat-form-field appearance="fill">
+      <input matInput type="text" [attr.maxlength]="config?.extra?.maxSpace" placeholder="{{config.placeholder}}" (input)="onInput($event.target.value)"
+        [value]="value" />
+      <mat-hint class="field-hint">{{ config.hint }}</mat-hint>
+    </mat-form-field>
+  </ng-container>
+  <ng-container *ngSwitchCase="'email'">
+    <mat-form-field appearance="fill">
+      {{value}}
+      <input matInput type="email" placeholder="{{config.placeholder}}" (input)="onInput($event.target.value)"
+        [value]="value" />
+      <mat-hint class="field-hint">{{ config.hint }}</mat-hint>
+    </mat-form-field>
+  </ng-container>
+  <ng-container *ngSwitchCase="'password'">
+    <mat-form-field appearance="fill">
+      <input matInput type="password" placeholder="{{config.placeholder}}" (input)="onInput($event.target.value)"
+        [value]="value" />
+      <mat-hint class="field-hint">{{ config.hint }}</mat-hint>
+    </mat-form-field>
+  </ng-container>
+  <ng-container *ngSwitchCase="'phone'">
+    <mat-form-field appearance="fill">
+      <input matInput type="tel" placeholder="{{config.placeholder}}" (input)="onInput($event.target.value)"
+        [value]="value" />
+      <mat-hint class="field-hint">{{ config.hint }}</mat-hint>
+    </mat-form-field>
+  </ng-container>
+  <ng-container *ngSwitchCase="'number'">
+    <mat-form-field appearance="fill">
+      <input matInput type="number" placeholder="{{config.placeholder}}" (input)="onInput($event.target.value)"
+        [value]="value" />
+      <mat-hint class="field-hint">{{ config.hint }}</mat-hint>
+    </mat-form-field>
+  </ng-container>
+  <ng-container *ngSwitchDefault>
+    <mat-error class="field-error">Field not found for Input Text type</mat-error>
+    <!-- se necesita un mensaje default -->
+  </ng-container>
+</div>

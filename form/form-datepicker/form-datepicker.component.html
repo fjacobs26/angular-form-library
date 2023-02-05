@@ -1,0 +1,21 @@
+<div class="datepicker" [ngSwitch]="config.subType">
+    <ng-container *ngSwitchCase="'base'">
+        <mat-form-field appearance="fill">
+            <input matInput [value]="value" [matDatepicker]="picker" placeholder="{{config.placeholder}}" (dateChange)="onChangeEvent($event)">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </ng-container>
+    <ng-container *ngSwitchCase="'dateRange'">
+        <ng-container *ngIf="config.extra">
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="{{config.placeholder}}" [min]="config.extra.minDate" [max]="config.extra.maxDate" [value]="value" [matDatepicker]="picker"  (dateChange)="onChangeEvent($event)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+        <mat-error class="field-error">Field not found for Datepicker type</mat-error>
+    </ng-container>
+</div>

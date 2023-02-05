@@ -1,0 +1,57 @@
+@use "sass:map";
+@import "../../../styles/css/_base.scss";
+
+.datepicker {
+  ::ng-deep .mat-form-field-flex {
+    padding-top: 5px !important;
+    background-color: #ecf1f8;
+    border-radius: 0 !important;
+  }
+  ::ng-deep .mat-select-value {
+    padding-bottom: 10px;
+  }
+  ::ng-deep .mat-select-arrow-wrapper {
+    padding-top: 15px;
+  }
+  ::ng-deep .mat-input-element {
+    padding-bottom: 5px;
+  }
+
+  ::ng-deep input.mat-input-element,
+  ::ng-deep input.mat-input-element::placeholder {
+    font-family: $font-0;
+    font-size: $font-base;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: map.get($colors, "blue-alt");
+    margin: 0 61px 2px 10px;
+  }
+
+  ::ng-deep span.mat-select-placeholder,
+  ::ng-deep span.mat-select-value-text span {
+    font-family: $font-0;
+    font-size: $font-base;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: map.get($colors, "blue-alt");
+    margin: 0 61px 16px 10px;
+  }
+
+  ::ng-deep svg.mat-datepicker-toggle-default-icon.ng-star-inserted {
+    margin-bottom: 4px !important;
+  }
+
+  ::ng-deep .mat-datepicker-toggle-active {
+    color: map.get($colors, "primary");
+  }
+}
+
+::ng-deep div.mat-calendar-body-selected {
+    background-color: map.get($colors, "primary");
+  }

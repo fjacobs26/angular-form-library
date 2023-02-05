@@ -1,0 +1,48 @@
+@use "sass:map";
+@import "../../../styles/css/_base.scss";
+
+span {
+    padding: 0;
+}
+
+.input {
+    ::ng-deep .mat-form-field-underline {
+      height: 1.45px;
+      margin: 16px 0 0;
+      opacity: 0.5;
+      background-color: map.get($colors, "blue-alt");
+    }
+    ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+      padding: 14px 0 0;
+      background-color: #ecf1f8;
+    }
+    ::ng-deep input.mat-input-element, input.mat-input-element::placeholder {
+      font-family: $font-0;
+      font-size: $font-base;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.33;
+      letter-spacing: normal;
+      color: map.get($colors, "blue-alt");
+      margin: 0 61px 2px 15px;
+    } 
+
+    ::ng-deep .bold-value .mat-select-value-text span {
+      font-weight: bold !important;
+    }
+    ::ng-deep .mat-form-field-flex {
+      padding-top: 5px !important;
+      background-color: #ecf1f8;
+      border-radius: 0 !important;
+    }
+    ::ng-deep .mat-select-value {
+      padding-bottom: 10px;
+    }
+    ::ng-deep .mat-select-arrow-wrapper {
+      padding-top: 15px;
+    }
+    ::ng-deep .mat-input-element {
+      padding-bottom: 5px;
+    }
+}

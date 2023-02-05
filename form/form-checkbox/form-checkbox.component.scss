@@ -1,0 +1,45 @@
+@use "sass:map";
+@import "../../../styles/css/_base.scss";
+
+.checkbox {
+  .title {
+    font-weight: bold;
+    color: map.get($colors, "primary");
+  }
+  .subtitle {
+    font-family: $font-0;
+    font-size: $font-xsmall;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: #6a6f7b;
+  }
+  ::ng-deep span.mat-checkbox-inner-container {
+    width: 24px;
+    height: 24px;
+  }
+  ::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border: solid 1px #6a6f7b;
+    border-radius: 4px;
+  }
+  ::ng-deep path.mat-checkbox-checkmark-path {
+    stroke: map.get($colors, "primary") !important;
+  }
+  ::ng-deep span.mat-checkbox-background {
+    background-color: map.get($colors, "light") !important;
+    border: solid 1px #6a6f7b !important;
+  }
+
+  ::ng-deep .mat-checkbox-checked span.mat-checkbox-background {
+    background-color: map.get($colors, "light") !important;
+    border: solid 1px map.get($colors, "primary") !important;
+  }
+
+  ::ng-deep .mat-ripple.mat-checkbox-ripple.mat-focus-indicator {
+    display: none !important;
+  }
+
+  
+}

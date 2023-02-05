@@ -1,0 +1,67 @@
+@use "sass:map";
+@import "../../styles/css/_base.scss";
+
+span {
+    padding: 0;
+}
+
+.item-header {
+    margin: 23px 98px 24px 0;
+    span {
+        font-family: $font-0;
+        font-size: 20px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #344b62;
+    }
+}
+
+.item-footer {
+    margin: 17px 0 0;
+    font-family: $font-0;
+    font-size: 10px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2.1;
+    letter-spacing: normal;
+    color: #344b62;
+}
+
+mat-hint {
+    margin: 54px 86px 0 15px;
+    opacity: 0.5;
+    font-family: $font-0;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: normal;
+    color: map.get($colors, "blue-alt");
+}
+
+button {
+    border: none;
+    border-radius: 0.2rem;
+}
+
+.btn.btn-primary {
+    color: #fff;
+    background-color: map.get($colors, "primary");
+    border-color: map.get($colors, "primary");
+    padding: 0.7em;
+    font-size: $font-base;
+  }
+  
+  .btn.disabled,
+  .btn:disabled,
+  fieldset:disabled .btn {
+    pointer-events: none;
+    opacity: 1;
+    border-color: map.get($colors, "grey") !important;
+    background-color: map.get($colors, "grey") !important;
+  }
