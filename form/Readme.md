@@ -11,8 +11,6 @@ HTML:
 
 Form Configuration:
 import { Validators } from "@angular/forms";
-import { IFormValue } from "sofinco-personalloan-library";
-import { PersonalData } from "../personal-data/personal-data.model";
 
 export const contactDataItems = (personalData: PersonalData, radioData: any): IFormValue[] => {
     return [
@@ -92,7 +90,6 @@ Typescript
 })
 export class ContactDataComponent {
 
-  @Input() personalData: PersonalData;
   @Input() currentStep: number;
   @Input() readOnly: boolean = false;
 
@@ -101,10 +98,9 @@ export class ContactDataComponent {
   prevGroup: FormGroup;
 
   constructor(
-    private personalDataService: PersonalDataService,
     private fb: FormBuilder
   ) {
-    this.personalDataService.getSelectData('TITRE').subscribe(comboData => {
+    this.someService.getData().subscribe(comboData => {
       this.prevGroup = this.fb.group({
         otherDireccionCheck: ['', []]
       });
